@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Training 100</string>
+    <string name="edit_textbox">Enter some text</string>
+    <string name="button_submit">Submit</string>
+    <string name="button_recyclerview">Recycler View</string>
+    <string name="button_broadcast">broadcast</string>
+    <string name="toast_custom_broadcast">Custom Broadcast</string>
+    <string name="text_async_task">I am ready to start work</string>
+    <string name="button_async_task_start">Start Task</string>
+    <string name="napping">Napping...</string>
+    <string name="text_instructions">Enter a book name to find out who wrote the book</string>
+    <string name="edit_bookInput_hint">Book Title</string>
+    <string name="button_search">Search Books</string>
+    <string name="no_results">No Results Found</string>
+    <string name="loading">Loading...</string>
+    <string name="no_network">Please Check your network connection and try again.</string>
+    <string name="no_search_term">Please enter a search term</string>
+    <string name="button_notify">Notify Me!</string>
+    <string name="button_update">Update Me!</string>
+    <string name="button_cancel">Cancel Me!</string>
+</resources>
