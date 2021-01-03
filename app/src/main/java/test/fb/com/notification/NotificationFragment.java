@@ -21,11 +21,12 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
+import test.fb.com.BuildConfig;
 import test.fb.com.MainActivity;
 import test.fb.com.R;
 
 public class NotificationFragment extends Fragment {
-    private static final String ACTION_UPDATE_NOTIFICATION = "test.fb.com.notifyme.ACTION_UPDATE_NOTIFICATION";
+    private static final String ACTION_UPDATE_NOTIFICATION = BuildConfig.APPLICATION_ID + ".notifyme.ACTION_UPDATE_NOTIFICATION";
     private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
     private static final int NOTIFICATION_ID = 0;
     private NotificationManager mNotifyManager; // Android system uses NotificationManager to deliver notifications to the user.

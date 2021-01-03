@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import test.fb.com.droidcafe.DroidCafe;
 import test.fb.com.recyclerview.RecyclerViewActivity;
 
 import static android.content.Intent.ACTION_POWER_CONNECTED;
@@ -66,5 +67,9 @@ public class MainActivity extends AppCompatActivity {
     public void gotoRecyclerView(View view) {
         Intent intent = new Intent(this, RecyclerViewActivity.class);
         startActivity(intent);
+    }
+
+    public void gotoDroidCafe(View view) {
+        startActivity(new Intent(this, DroidCafe.class));
     }
 }

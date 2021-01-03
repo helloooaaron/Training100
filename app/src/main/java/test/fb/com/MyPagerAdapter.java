@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import test.fb.com.asynctask.AsyncTaskFragment;
 import test.fb.com.notification.NotificationFragment;
+import test.fb.com.sharedpref.HelloSharedPref;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
 
@@ -27,6 +28,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                 return AsyncTaskFragment.newInstance();
             case 3:
                 return NotificationFragment.newInstance();
+            case 4:
+                return HelloSharedPref.newInstance();
             default:
                 return null;
         }
@@ -34,7 +37,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     @Nullable
@@ -49,6 +52,8 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
                 return "Async";
             case 3:
                 return "Notify";
+            case 4:
+                return "SharedPref";
             default:
                 return "";
         }

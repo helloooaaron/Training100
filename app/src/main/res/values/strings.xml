@@ -19,4 +19,32 @@
     <string name="button_update">Update Me!</string>
     <string name="button_cancel">Cancel Me!</string>
     <string name="button_inbox">Inbox Me!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_count">count</string>
+    <string name="button_reset">RESET</string>
+    <string name="button_black">black</string>
+    <string name="button_red">RED</string>
+    <string name="button_blue">BLUE</string>
+    <string name="button_green">Green</string>
+    <string name="default_count">0</string>
+    <string name="action_settings">settings</string>
+    <string name="title_activity_droid_cafe">DroidCafe</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="button_droidcafe">Droid Cafe</string>
+    <string name="text_intro">Droid Desserts</string>
+    <string name="image_donut_desc">Donuts are glazed and sprinkled with candy.</string>
+    <string name="image_icecream_desc">Ice cream sandwiches have chocolate wafers and vanilla filling.</string>
+    <string name="image_froyo_desc">FroYo is premium self-serve frozen yogurt.</string>
+    <string name="donut_order_msg">You ordered a donut.</string>
+    <string name="icecream_order_msg">You ordered an icecream.</string>
+    <string name="froyo_order_msg">You ordered a froyo.</string>
+    <string name="unknown_order_msg">Unknown item.</string>
 </resources>

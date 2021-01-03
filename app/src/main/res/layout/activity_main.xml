@@ -17,7 +17,14 @@
             android:layout_height="wrap_content"
             android:text="@string/button_recyclerview"
             android:onClick="gotoRecyclerView"/>
+        <Button
+            android:id="@+id/button_droidcafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_droidcafe"
+            android:onClick="gotoDroidCafe"/>
     </LinearLayout>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
