@@ -18,4 +18,5 @@
     <string name="button_notify">Notify Me!</string>
     <string name="button_update">Update Me!</string>
     <string name="button_cancel">Cancel Me!</string>
+    <string name="button_inbox">Inbox Me!</string>
 </resources>

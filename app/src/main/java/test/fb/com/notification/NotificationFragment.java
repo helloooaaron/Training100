@@ -31,6 +31,7 @@ public class NotificationFragment extends Fragment {
     private NotificationManager mNotifyManager; // Android system uses NotificationManager to deliver notifications to the user.
     private Button mButtonNotify;
     private Button mButtonUpdate;
+    private Button mButtonInbox;
     private Button mButtonCancel;
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -69,7 +70,7 @@ public class NotificationFragment extends Fragment {
         mButtonNotify.setOnClickListener(v -> {
             setButtonState(false, true, true);
             NotificationCompat.Builder builder = getNotificationBuilder(); // Use Builder to build notification
-            // Add action button to the notification to trigger a broadcast
+            // Add action button to the notification to trigger a broadcast. It's going to be a global broadcast sent by Android framework.
             PendingIntent piAction = PendingIntent.getBroadcast
                     (getContext(), NOTIFICATION_ID, new Intent(ACTION_UPDATE_NOTIFICATION), PendingIntent.FLAG_ONE_SHOT);
             builder.addAction(R.drawable.ic_hit_me, "hit me", piAction);
@@ -86,6 +87,23 @@ public class NotificationFragment extends Fragment {
                         .bigPicture(bitmap)
                         .setBigContentTitle("Notification Updated!"));
             mNotifyManager.notify(NOTIFICATION_ID, builder.build()); // Notify to the same ID to update the notification
+        });
+
+        // INBOX ME!
+        mButtonInbox = (Button) view.findViewById(R.id.button_inbox);
+        mButtonInbox.setOnClickListener(v -> {
+            setButtonState(false, false, true);
+            NotificationCompat.Builder builder = getNotificationBuilder();
+            PendingIntent piLearnMore = PendingIntent.getBroadcast
+                    (getContext(), NOTIFICATION_ID, new Intent(ACTION_UPDATE_NOTIFICATION), PendingIntent.FLAG_ONE_SHOT);
+            builder.setStyle(new NotificationCompat.InboxStyle()
+                            .setBigContentTitle("Title")
+                            .addLine("Here is the first one")
+                            .addLine("This is the second one")
+                            .addLine("Yay last one")
+                            .setSummaryText("+1 more"))
+                    .addAction(R.drawable.ic_learn_more, "LEARN MORE", piLearnMore);
+            mNotifyManager.notify(NOTIFICATION_ID, builder.build());
         });
 
         // CANCEL ME!
@@ -110,7 +128,7 @@ public class NotificationFragment extends Fragment {
     }
 
     public void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // Best practice: check SDK version before using channel
             // Create and configure notification channel for Andoid8 (API26) or higher.
             NotificationChannel notifyChannel = new NotificationChannel(PRIMARY_CHANNEL_ID, "Mascot Notification", NotificationManager.IMPORTANCE_HIGH); // High importance
             notifyChannel.enableLights(true);
@@ -123,26 +141,27 @@ public class NotificationFragment extends Fragment {
 
     private NotificationCompat.Builder getNotificationBuilder() {
         // Click notification PI: create a new MainActivity on top of current Activity.
-        PendingIntent piContent = PendingIntent.getActivity
+        PendingIntent piTap = PendingIntent.getActivity
                 (getContext(), NOTIFICATION_ID, new Intent(getContext(), MainActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
         // CLear notification PI: trigger broadcast to restore button states
         PendingIntent piDelete = PendingIntent.getBroadcast
                 (getContext(), NOTIFICATION_ID, new Intent(ACTION_UPDATE_NOTIFICATION), PendingIntent.FLAG_ONE_SHOT);
-        return new NotificationCompat.Builder(getContext(), PRIMARY_CHANNEL_ID)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) // For backward compatibility (< Android7.1, API25) when channel is not available
-                .setDefaults(NotificationCompat.DEFAULT_ALL) // For backward compatibility to set sound/vibration/led etc.
+        return new NotificationCompat.Builder(getContext(), PRIMARY_CHANNEL_ID) // CHANNEL_ID is ignored by older version
+                .setPriority(NotificationCompat.PRIORITY_HIGH) // Backward compatibility (< Android7.1, API25) where channel is not available
+                .setDefaults(NotificationCompat.DEFAULT_ALL)   // Backward compatibility to set sound/vibration/led etc.
                 .setContentTitle("You've been notified!")
                 .setContentText("This is your notification text.")
                 .setSmallIcon(R.drawable.ic_dollar)
-                .setContentIntent(piContent) // PendingIntent on click on the notification
-                .setDeleteIntent(piDelete)   // PendingIntent on clear this notification
-                .setAutoCancel(true); // Auto close the notification when user taps on it.
+                .setContentIntent(piTap) // PendingIntent on tap on the notification
+                .setDeleteIntent(piDelete) // PendingIntent on clear this notification
+                .setAutoCancel(true); // Auto clear the notification when user taps on it.
     }
 
     // Toggle button state
     void setButtonState(boolean isNotifyEnabled, boolean isUpdateEnabled, boolean isCancelEnabled) {
         mButtonNotify.setEnabled(isNotifyEnabled);
         mButtonUpdate.setEnabled(isUpdateEnabled);
+        mButtonInbox.setEnabled(isUpdateEnabled);
         mButtonCancel.setEnabled(isCancelEnabled);
     }
 }

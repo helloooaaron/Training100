@@ -48,7 +48,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return "Async";
             case 3:
-                return "Notif";
+                return "Notify";
             default:
                 return "";
         }

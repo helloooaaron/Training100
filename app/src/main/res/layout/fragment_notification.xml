@@ -23,8 +23,18 @@
         android:text="@string/button_update"
         app:layout_constraintTop_toBottomOf="@id/button_notify"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_inbox"
         app:layout_constraintBottom_toTopOf="@id/button_cancel"/>
+
+    <Button
+        android:id="@+id/button_inbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_inbox"
+        app:layout_constraintTop_toBottomOf="@id/button_notify"
+        app:layout_constraintBottom_toTopOf="@id/button_cancel"
+        app:layout_constraintStart_toEndOf="@id/button_update"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/button_cancel"
