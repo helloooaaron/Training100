@@ -47,4 +47,16 @@
     <string name="icecream_order_msg">You ordered an icecream.</string>
     <string name="froyo_order_msg">You ordered a froyo.</string>
     <string name="unknown_order_msg">Unknown item.</string>
+    <string name="label_name">Name</string>
+    <string name="edit_name_hint">Enter Your Name</string>
+    <string name="label_addr">Address</string>
+    <string name="edit_addr_hint">Enter Your Address</string>
+    <string name="label_phone">Phone</string>
+    <string name="edit_phone_hint">Enter Phone</string>
+    <string name="label_note">Note</string>
+    <string name="edit_note_hint">Enter Note</string>
+    <string name="label_delivery">Choose a delivery method:</string>
+    <string name="radio_sameday">Same day messenger service</string>
+    <string name="radio_nextday">Next day ground delivery</string>
+    <string name="radio_pickup">Pick up</string>
 </resources>
