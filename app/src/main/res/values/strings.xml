@@ -59,4 +59,12 @@
     <string name="radio_sameday">Same day messenger service</string>
     <string name="radio_nextday">Next day ground delivery</string>
     <string name="radio_pickup">Pick up</string>
+    <string name="action_contact">Contact</string>
+    <string name="action_order">Order</string>
+    <string name="action_status">Status</string>
+    <string name="action_fav">Favorites</string>
+    <string name="action_order_msg">You selected Order.</string>
+    <string name="action_status_msg">You selected Status.</string>
+    <string name="action_fav_msg">You selected Favorites.</string>
+    <string name="action_contact_mg">You selected Contact.</string>
 </resources>

@@ -1,5 +1,6 @@
 package test.fb.com.droidcafe;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,11 +17,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import test.fb.com.BuildConfig;
 import test.fb.com.R;
 
 public class OrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    public static final String EXTRA_ORDER = BuildConfig.APPLICATION_ID + ".order";
     private static final String LOG_TAG = OrderActivity.class.getSimpleName();
     private String mSpinnerPhone;
+
+    public static void startActivity(Context context, String orderMsg) {
+        Intent intent = new Intent(context, OrderActivity.class);
+        intent.putExtra(EXTRA_ORDER, orderMsg);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +37,7 @@ public class OrderActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_order);
         TextView textOrderDetail = (TextView) findViewById(R.id.text_order_detail);
         Intent intent = getIntent();
-        textOrderDetail.setText("Order: " + intent.getStringExtra(DroidCafe.EXTRA_ORDER));
+        textOrderDetail.setText("Order: " + intent.getStringExtra(EXTRA_ORDER));
 
         // Set Spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource

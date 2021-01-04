@@ -2,9 +2,12 @@ package test.fb.com.droidcafe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -14,7 +17,6 @@ import test.fb.com.BuildConfig;
 import test.fb.com.R;
 
 public class DroidCafe extends AppCompatActivity {
-    public static final String EXTRA_ORDER = BuildConfig.APPLICATION_ID + ".order";
     private String mOrderMessage = "";
 
     @Override
@@ -25,15 +27,38 @@ public class DroidCafe extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DroidCafe.this, OrderActivity.class);
-                intent.putExtra(EXTRA_ORDER, mOrderMessage);
-                startActivity(intent);
-            }
-        });
+        fab.setOnClickListener(
+                v -> OrderActivity.startActivity(DroidCafe.this, mOrderMessage));
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu, adding items to the appbar.
+        getMenuInflater().inflate(R.menu.menu_droid_cafe, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_order:
+                OrderActivity.startActivity(this, mOrderMessage);
+                break;
+            case R.id.action_status:
+                Toast.makeText(this, R.string.action_status_msg, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_fav:
+                Toast.makeText(this, R.string.action_fav_msg, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_contact:
+                Toast.makeText(this, R.string.action_contact_mg, Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     public void displayOrder(View view) {
         switch(view.getId()) {
