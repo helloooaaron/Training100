@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PageFragment">
+    tools:context=".security.SecurityFragment">
 
     <TextView
-        android:id="@+id/text_page_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
+        android:text="Fail to Authenticate"
+        android:textSize="24sp"
         android:gravity="center"
-        android:textSize="16sp"/>
+        android:textStyle="bold"
+        />
 
 </FrameLayout>

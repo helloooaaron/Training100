@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import test.fb.com.asynctask.AsyncTaskFragment;
+import test.fb.com.broadcast.BroadcastFragment;
 import test.fb.com.notification.NotificationFragment;
+import test.fb.com.security.SecurityFragment;
 import test.fb.com.sharedpref.HelloSharedPref;
 
 public class MyPagerAdapter extends FragmentPagerAdapter {
@@ -21,15 +23,15 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch(position) {
             case 0:
-                return PageFragment.newInstance("Content for Tab #1");
-            case 1:
                 return BroadcastFragment.newInstance();
-            case 2:
+            case 1:
                 return AsyncTaskFragment.newInstance();
-            case 3:
+            case 2:
                 return NotificationFragment.newInstance();
-            case 4:
+            case 3:
                 return HelloSharedPref.newInstance();
+            case 4:
+                return SecurityFragment.newInstance();
             default:
                 return null;
         }
@@ -45,15 +47,15 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch(position) {
             case 0:
-                return "Tab #1";
-            case 1:
                 return "Broadcast";
-            case 2:
+            case 1:
                 return "Async";
-            case 3:
+            case 2:
                 return "Notify";
-            case 4:
+            case 3:
                 return "SharedPref";
+            case 4:
+                return "Security";
             default:
                 return "";
         }

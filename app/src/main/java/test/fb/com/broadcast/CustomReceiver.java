@@ -1,4 +1,4 @@
-package test.fb.com;
+package test.fb.com.broadcast;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

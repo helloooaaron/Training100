@@ -67,4 +67,9 @@
     <string name="action_status_msg">You selected Status.</string>
     <string name="action_fav_msg">You selected Favorites.</string>
     <string name="action_contact_mg">You selected Contact.</string>
+    <string name="button_encrypt">Encrypt</string>
+    <string name="button_decrypt">decrypt</string>
+    <string name="per_use_key">Per Use Key</string>
+    <string name="timeout_key">Timeout Key</string>
+    <string name="text_secret_data">Placeholder for output</string>
 </resources>

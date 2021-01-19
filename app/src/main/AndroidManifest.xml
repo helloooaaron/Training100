@@ -20,7 +20,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <receiver
-            android:name=".CustomReceiver"
+            android:name=".broadcast.CustomReceiver"
             android:enabled="true"
             android:exported="true" />
 

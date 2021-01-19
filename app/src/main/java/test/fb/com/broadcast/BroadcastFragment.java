@@ -1,4 +1,4 @@
-package test.fb.com;
+package test.fb.com.broadcast;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.Random;
 
+import test.fb.com.R;
+
 import static test.fb.com.MainActivity.ACTION_CUSTOM_BROADCAST;
 
 public class BroadcastFragment extends Fragment {
@@ -22,6 +24,9 @@ public class BroadcastFragment extends Fragment {
 
     /**
      * Use this factory method to create a new instance of this fragment using the provided parameters.
+     *
+     * Fragment is often destroyed and recreated by the system. When system does so, it will call the no-argument constructor.
+     * Thus it's important to use a Bundle to pass any necessary data.
      */
     public static BroadcastFragment newInstance() {
         return new BroadcastFragment();

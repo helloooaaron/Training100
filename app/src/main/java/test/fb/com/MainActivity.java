@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import test.fb.com.broadcast.CustomReceiver;
 import test.fb.com.droidcafe.DroidCafe;
 import test.fb.com.recyclerview.RecyclerViewActivity;
 
